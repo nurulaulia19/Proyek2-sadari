@@ -18,9 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('konten.login');
+    return view('pages.login');
 });
 
 Route::get('/register', function () {
-    return view('konten.register');
+    return view('pages.registrasi');
+});
+
+Route::get('/quisioner', function () {
+    return view('pages.quisioner');
 });
