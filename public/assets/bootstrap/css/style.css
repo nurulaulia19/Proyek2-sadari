@@ -1,8 +1,8 @@
 * {
     font-family: "Satoshi";
-}
+} */
 
-.login {
+/* .login {
     height: 100vh;
 }
 
@@ -15,8 +15,6 @@
     font-weight: 700;
     font-size: 45.9px;
     line-height: 76px;
-    /* or 166% */
-
     color: #ffffff;
 }
 
@@ -28,14 +26,13 @@
 
     color: #ffffff;
     margin-bottom: 20px;
-}
+} */
 
-.header h1 {
+/* .header h1 {
     font-style: normal;
     font-weight: 700;
     font-size: 45.9px;
     line-height: 76px;
-    /* or 166% */
 
     color: #ffffff;
     display: flex;
