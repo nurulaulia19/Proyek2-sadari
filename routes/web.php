@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResultQuisionerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('resultquisioner', ResultQuisionerController::class);
+
+
 Route::get('/login', function () {
     return view('pages.login');
 });
+
+
+
 
 Route::get('/register', function () {
     return view('pages.registrasi');
@@ -28,3 +36,7 @@ Route::get('/register', function () {
 Route::get('/quisioner', function () {
     return view('pages.quisioner');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

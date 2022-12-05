@@ -17,6 +17,7 @@
             @include('layouts.navbar')
 
             <div class="max-w-screen-xl  w-full lg:flex ">
+
                 <div class="h-screen/2  flex justify-center lg:h-screen lg:w-3/5">
                     <img src="../assets/img/gambar.png" alt="sadari" />
                 </div>
@@ -26,6 +27,12 @@
                             AYO<br />
                             PERIKSA PAYUDARA SENDIRI
                         </p>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                            <button>
+                                logout
+                            </button>
+                        </form>
                         <p>Deteksi dini kanker payudara</p>
                         <div class="flex justify-center mt-4">
                             <button class=" bg-blue-600 font-bold py-2 px-4 rounded-xl text-white">Go Sadari</button>
