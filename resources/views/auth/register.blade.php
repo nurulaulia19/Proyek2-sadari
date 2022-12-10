@@ -38,7 +38,7 @@
                                         <!-- <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="nik" placeholder="nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" required autocomplete="nik" autofocus>
+                                            <input id="nik" placeholder="Nik" type="text" class="form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" required autocomplete="nik" autofocus>
 
                                             @error('nik')
                                             <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                                         <!-- <label for="nik" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="name" placeholder="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            <input id="name" placeholder="Nama" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
                                         <!-- <label for="kecamatan" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="email" placeholder="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                            <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                                         <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="no_hp" placeholder="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp">
+                                            <input id="no_hp" placeholder="No HP" type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" value="{{ old('no_hp') }}" required autocomplete="no_hp">
 
                                             @error('no_hp')
                                             <span class="invalid-feedback" role="alert">
@@ -91,7 +91,29 @@
                                         <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="kecamatan" placeholder="kecamatan" type="kecamatan" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" value="{{ old('kecamatan') }}" required autocomplete="kecamatan">
+                                            <input id="tanggal_lahir" placeholder="Tanggal Lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
+
+                                            @error('tanggal_lahir')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
+
+                                        <div class="col-md-6 w-100">
+                                            <select name="pendidikan" class="form-select" aria-label="Default select example" required>
+                                                <option disabled selected>Pendidikan</option>
+                                                <option value="sukagumiwang">SD/Sederajat</option>
+                                                <option value="bongas">SMP/MTS/Sederajat</option>
+                                                <option value="anjatan">SMA/SMK/Sederajat</option>
+                                                <option value="kandanghaur">S1</option>
+                                                <option value="balongan">S2</option>
+                                                <option value="lelea">S3</option>
+                                            </select>
 
                                             @error('kecamatan')
                                             <span class="invalid-feedback" role="alert">
@@ -100,13 +122,40 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="row mb-3">
                                         <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="kabupaten" placeholder="kabupaten" type="kabupaten" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
+                                            <select name="kecamatan" class="form-select" aria-label="Default select example" required>
+                                                <option disabled selected>Pilih Kecamatan</option>
+                                                <option value="sukagumiwang">Sukagumiwang</option>
+                                                <option value="bongas">Bongas</option>
+                                                <option value="anjatan">Anjatan</option>
+                                                <option value="kandanghaur">Kandanghaur</option>
+                                                <option value="balongan">Balongan</option>
+                                                <option value="lelea">Lelea</option>
+                                                <option value="patrol">Patrol</option>
+                                                <option value="jatibarang">Jatibarang</option>
+                                                <option value="kroya">Kroya</option>
+                                            </select>
 
-                                            @error('kabupaten')
+                                            @error('kecamatan')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+                                        <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
+
+                                        <div class="col-md-6 w-100">
+                                            <input id="alamat" placeholder="Desa Blok RT RW" type="selectoption" class="form-control @error('alamat') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
+
+                                            @error('alamat')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -118,7 +167,7 @@
                                         <!-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="password" placeholder="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                            <input id="password" placeholder="Password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -132,7 +181,7 @@
                                         <!-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="password-confirm" placeholder="confirm-password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                            <input id="password-confirm" placeholder="Konfirmasi Password" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
 

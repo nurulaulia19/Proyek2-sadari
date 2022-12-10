@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daftar_keluhan;
+use App\Models\ResultKeluhan;
 use App\Models\ResultQuisioner;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,8 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with([
-            'result_quisioner' => ResultQuisioner::all(),
+        $state = '';
+        $cs = '';
+        $currentHasil = '';
+        return view('home', compact('state', 'currentHasil', 'cs'))->with([
+            'result_quisioner' => ResultQuisioner::orderBy("id", "desc")->get(),
+            'result_keluhan' => ResultKeluhan::orderBy("created_at", "desc")->get(),
+            'daftar_keluhan' => Daftar_keluhan::all()
         ]);
     }
 }

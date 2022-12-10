@@ -27,15 +27,13 @@
                             AYO<br />
                             PERIKSA PAYUDARA SENDIRI
                         </p>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                            <button>
-                                logout
-                            </button>
-                        </form>
+
                         <p>Deteksi dini kanker payudara</p>
                         <div class="flex justify-center mt-4">
-                            <button class=" bg-blue-600 font-bold py-2 px-4 rounded-xl text-white">Go Sadari</button>
+                            <a href="#info-section">
+                                <button class=" bg-blue-600 font-bold py-2 px-4 rounded-xl text-white">Go Sadari</button>
+                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -45,7 +43,7 @@
     </div>
 
     <!-- information -->
-    <div class="min-h-screen bg-red-100 flex items-center justify-center">
+    <div id="info-section" class="min-h-screen bg-red-100 flex items-center justify-center">
 
         <div class="max-w-screen-xl  w-full">
             <div class="p-4">
@@ -61,7 +59,11 @@
                 <div class="p-4 lg:w-3/5 lg:text-2xl lg:h-5/6  lg:flex lg:flex-col justify-between">
                     <p>Pemeriksaan payudara sendiri (SADARI) adalah cara termudah untuk medeteksi kelaian pada ukuran, tekstur, serta bentukk payudara. Pemeriksaan ini juga bisa membantu deteksi dini kanker payudara, sehingga, Lalu, bagaimana SADARI dilakukan? Adakah tes lainya untuk mendeteksi dini kanker payudara?</p>
                     <div class="flex justify-center mt-4 lg:mt-8">
-                        <button class=" bg-blue-600  py-2 px-4 rounded-xl text-gray-300">Info lebih lanjut</button>
+                        <a href="#info-lanjut">
+                            <button class=" bg-blue-600  py-2 px-4 rounded-xl text-gray-300">Info lebih lanjut</button>
+                        </a>
+
+
                     </div>
                 </div>
 
@@ -70,7 +72,7 @@
 
     </div>
     <div class="min-h-screen bg-red-100 flex justify-center">
-        <div class="max-w-screen-xl   w-full">
+        <div class="max-w-screen-xl   w-full" id="info-lanjut">
             <div class="flex justify-center p-4">
                 <h1 class="text-2xl font-medium">Fasilitas Kesehatan</h1>
             </div>

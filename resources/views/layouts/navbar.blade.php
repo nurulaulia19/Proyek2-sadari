@@ -28,7 +28,7 @@
                 </li>
             </div>
         </div>
-        <div id="menu" style="display: none;" class=" h-screen-90vh bg-green-300 flex flex-col items-center justify-center">
+        <div id="menu" style="display: none;" class=" h-screen-90vh bg-red-100 flex flex-col items-center justify-center">
             <ul>
                 <li class="my-4 text-center text-2xl">
                     <a>Informasi</a>

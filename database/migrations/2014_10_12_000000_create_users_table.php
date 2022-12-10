@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('nik')->nullable();
             $table->string('name')->nullable();
             $table->string('no_hp')->nullable();
+            $table->string('tanggal_lahir')->nullable();
+            $table->string('pendidikan')->nullable();
             $table->string('kecamatan')->nullable();
-            $table->string('kabupaten')->nullable();
+            $table->string('alamat')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
