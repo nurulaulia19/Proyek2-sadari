@@ -1,10 +1,14 @@
 <?php
 
-use App\Http\Controllers\ResultKeluhanController;
-use App\Http\Controllers\ResultQuisionerController;
-use App\Models\Daftar_keluhan;
 use App\Models\Quisioners;
+use App\Models\Daftar_keluhan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\biodataController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ResultKeluhanController;
+use App\Http\Controllers\belumditanganiController;
+use App\Http\Controllers\sudahditanganiController;
+use App\Http\Controllers\ResultQuisionerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +66,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/admin/home', function () {
 //     return view('pages.admin/home');
 // });
+
+Route::get('/admin/biodata', [biodataController::class, 'index']);
+
+// Route::get('/admin/sudahditangani', [sudahditanganiController::class, 'index']);
+// Route::get('/admin/belumditangani', [belumditanganiController::class, 'index']);
+Route::get('/admin/laporan', [LaporanController::class, 'index']);

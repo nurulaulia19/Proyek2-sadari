@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\PuskesmasDetails;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,14 +65,67 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        PuskesmasDetails::create([
+            'status' => 'pasien',
+            'user_id' => $this->checkUserNew(),
+            'puskesmas_id' => $this->generatePuskesmas($data['kecamatan'])
+            
+        ]);
         return User::create([
             'nik' => $data['nik'],
             'name' => $data['name'],
             'email' => $data['email'],
             'no_hp' => $data['no_hp'],
+            'tanggal_lahir' => $data['tanggal_lahir'],
+            'pendidikan' => $data['pendidikan'],
             'kecamatan' => $data['kecamatan'],
-            'kabupaten' => $data['kabupaten'],
+            'alamat' => $data['alamat'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function generatePuskesmas($kecamatan)
+    {
+        if ($kecamatan == 'sukagumiwang'){
+            return 1;
+        }else if($kecamatan == 'sidamulya'){
+            return 2;
+        }else if($kecamatan == 'anjatan'){
+            return 3;
+        }else if($kecamatan == 'balongan'){
+            return 4;
+        }else if($kecamatan == 'kandanghaur'){
+            return 5;
+        }else if($kecamatan == 'patrol'){
+            return 6;
+        }else if($kecamatan == 'lelea'){
+            return 7;
+        }else if($kecamatan == 'kandanghaur'){
+            return 8;
+        }else if($kecamatan == 'bongas'){
+            return 9;
+        }else if($kecamatan == 'gabuswetan'){
+            return 10;
+        }else if($kecamatan == 'kroya'){
+            return 11;
+        }else if($kecamatan == 'sliyeg'){
+            return 12;
+        }else if($kecamatan == 'jatibarang'){
+            return 13;
+        }
+    }
+
+    public function checkUserNew()
+    {
+        $id_new = User::orderBy("id", "desc")->get();
+        return $id_new[0]->id + 1;
+    }
 }
+
+
+
+
+
+
+
+

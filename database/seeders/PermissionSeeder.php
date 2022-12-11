@@ -16,6 +16,7 @@ class PermissionSeeder extends Seeder
     public function run()
     {
         $this->generateFor('puskesmas', 'web');
+        $this->generateFor('user', 'web');
     }
     public function generateFor($name, $guard)
     {
@@ -23,5 +24,6 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'create_' . $name, 'guard_name' => $guard,]);
         Permission::create(['name' => 'update_' . $name, 'guard_name' => $guard,]);
         Permission::create(['name' => 'delete_' . $name, 'guard_name' => $guard,]);
+        
     }
 }

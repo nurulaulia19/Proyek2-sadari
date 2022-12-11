@@ -91,7 +91,7 @@
                                         <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="tanggal_lahir" placeholder="Tanggal Lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
+                                            <input id="tanggal_lahir" placeholder="Tanggal Lahir" type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
 
                                             @error('tanggal_lahir')
                                             <span class="invalid-feedback" role="alert">
@@ -107,15 +107,15 @@
                                         <div class="col-md-6 w-100">
                                             <select name="pendidikan" class="form-select" aria-label="Default select example" required>
                                                 <option disabled selected>Pendidikan</option>
-                                                <option value="sukagumiwang">SD/Sederajat</option>
-                                                <option value="bongas">SMP/MTS/Sederajat</option>
-                                                <option value="anjatan">SMA/SMK/Sederajat</option>
-                                                <option value="kandanghaur">S1</option>
-                                                <option value="balongan">S2</option>
-                                                <option value="lelea">S3</option>
+                                                <option value="sd/sederajat">SD/Sederajat</option>
+                                                <option value="smp/mts/sederajat">SMP/MTS/Sederajat</option>
+                                                <option value="sma/smk/sederajat">SMA/SMK/Sederajat</option>
+                                                <option value="s1">S1</option>
+                                                <option value="s2">S2</option>
+                                                <option value="s3">S3</option>
                                             </select>
 
-                                            @error('kecamatan')
+                                            @error('pendidikan')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -153,7 +153,7 @@
                                         <!-- <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label> -->
 
                                         <div class="col-md-6 w-100">
-                                            <input id="alamat" placeholder="Desa Blok RT RW" type="selectoption" class="form-control @error('alamat') is-invalid @enderror" name="kabupaten" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
+                                            <input id="alamat" placeholder="Desa Blok RT RW" type="selectoption" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('kabupaten') }}" required autocomplete="kabupaten">
 
                                             @error('alamat')
                                             <span class="invalid-feedback" role="alert">

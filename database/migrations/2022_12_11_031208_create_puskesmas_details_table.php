@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('puskesmas', function (Blueprint $table) {
+        Schema::create('puskesmas_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama');
-            $table->string('kecamatan');
-            $table->string('alamat');
+            $table->string('status', 15);
+            $table->foreignId('user_id');
+            $table->foreignId('puskesmas_id');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('puskesmas');
+        Schema::dropIfExists('puskesmas_details');
     }
 };

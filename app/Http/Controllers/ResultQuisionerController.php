@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Laporan;
 use App\Models\ResultKeluhan;
 use App\Models\ResultQuisioner;
 use Illuminate\Http\Request;
@@ -29,6 +29,7 @@ class ResultQuisionerController extends Controller
     public function store(Request $request)
     {
         $totalBrain = 0;
+        $totalKeluhan = "";
 
         if ($request->q1 == 'c') {
             $totalBrain += 10;
@@ -65,13 +66,19 @@ class ResultQuisionerController extends Controller
         $result_quisioner->hasil = $totalBrain;
         $result_quisioner->user_id = (int)$request->user_id;
         $result_quisioner->save();
+
+        
+
         if ($request->a1 != "") {
+            
+            $totalKeluhan = $request->a1;
             $keluhan = new ResultKeluhan();
             $keluhan->keluhan = $request->a1;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
         if ($request->a2 != "") {
+            $totalKeluhan = $totalKeluhan .' ' .$request->a2;
             $keluhan = new ResultKeluhan();
             $keluhan->keluhan = $request->a2;
             $keluhan->user_id = (int)$request->user_id;
@@ -79,37 +86,51 @@ class ResultQuisionerController extends Controller
         }
         if ($request->a3 != "") {
             $keluhan = new ResultKeluhan();
+            $totalKeluhan += $request->a3;
             $keluhan->keluhan = $request->a3;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
         if ($request->a4 != "") {
             $keluhan = new ResultKeluhan();
+            $totalKeluhan = $totalKeluhan .' ' .$request->a4;
             $keluhan->keluhan = $request->a4;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
         if ($request->a5 != "") {
             $keluhan = new ResultKeluhan();
+            $totalKeluhan = $totalKeluhan .' ' . $request->a5;
             $keluhan->keluhan = $request->a5;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
         if ($request->a6 != "") {
             $keluhan = new ResultKeluhan();
+            $totalKeluhan = $totalKeluhan .' ' . $request->a6;
             $keluhan->keluhan = $request->a6;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
         if ($request->a7 != "") {
             $keluhan = new ResultKeluhan();
+            $totalKeluhan = $totalKeluhan .' ' .$request->a7;
             $keluhan->keluhan = $request->a7;
             $keluhan->user_id = (int)$request->user_id;
             $keluhan->save();
         }
+        $laporan = new Laporan;
+        $laporan->nik = $request->nik;
+        $laporan->nama = $request->nama;
+        $laporan->hasil_quisioner = $totalBrain;
+        $laporan->hasil_keluhan = $totalKeluhan;
+        $laporan->status = "belum ditangani";
+        $laporan->save();
+
+
         return redirect('/home');
-        // return to_route('resultquisioner.index')->with('success', 'data berhasil ditambah');
-        // return to_route('resultkeluhan.store')->with('success', 'data berhasil ditambah')->withInput();
+       
+
     }
 
 

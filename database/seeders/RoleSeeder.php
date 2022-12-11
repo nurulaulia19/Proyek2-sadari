@@ -18,10 +18,15 @@ class RoleSeeder extends Seeder
         Role::create([
             'name' => 'admin',
             'guard_name' => 'web'
-        ])->givePermissionTo(Permission::all());;
+        ])->givePermissionTo('read_puskesmas');
         Role::create([
             'name' => 'user',
             'guard_name' => 'web'
         ]);
+        Role::create([
+            'name' => 'superadmin',
+            'guard_name' => 'web'
+        ])->givePermissionTo(Permission::all());
+
     }
 }

@@ -34,6 +34,8 @@
                             <h1 id="q-list" class="text-center text-2xl">{{ $value->pertanyaan }}</h1>
                         </div>
                         <input style="display: none;" type="text" name="user_id" value="{{ Auth::user()->id }}">
+                        <input style="display: none;" type="text" name="nik" value="{{ Auth::user()->nik }}">
+                        <input style="display: none;" type="text" name="nama" value="{{ Auth::user()->name }}">
                         <div>
                             <div class="flex items-center mt-4 bg-white border border-slate-300 border border-slate-300  rounded-lg">
                                 <input class="inputan" type="radio" id="a{{ $value->id }}" name="q{{ $value->id }}" value="a">

@@ -18,69 +18,79 @@ class PuskesmasSeeder extends Seeder
     {
         Puskesmas::create([
             'nama' => 'Puskesmas Sukagumiwang',
-            'alamat' => 'Sukagumiwang',
+            'alamat' => 'sukagumiwang',
+            'kecamatan' => 'sukagumiwang',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Sidamulya',
-            'alamat' => 'Jl raya krasak Sidamulya kecamatan bongas kabupaten Indramayu',
+            'alamat' => 'll raya krasak sidamulya kecamatan bongas kabupaten indramayu',
+            'kecamatan' => 'sidamulya',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Anjatan',
-            'alamat' => 'Jl raya anjatan no 3 desa Anjatan Utara kecamatan anjatan',
+            'alamat' => 'jl raya anjatan no 3 desa anjatan utara kecamatan anjatan',
+            'kecamatan' => 'anjatan',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Balongan',
-            'alamat' => 'Jalan Raya Balongan No 20 Kec.Balongan Kab.Indramayu',
-            
+            'alamat' => 'jalan raya balongan No 20 Kec.balongan kab.indramayu',
+            'kecamatan' => 'balongan',
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas kertawinangu',
-            'alamat' => 'Desa eretan kulon _kandanghaur
-            ',
+            'alamat' => 'desa eretan kulon kandanghaur',
+            'kecamatan' => 'kandanghaur',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Patrol',
-            'alamat' => 'Jl lapang bola patrol puskesmas patrol kec patrol kabupaten indramayu',
+            'alamat' => 'jl lapang bola patrol puskesmas patrol kec patrol kabupaten indramayu',
+            'kecamatan' => 'patrol',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Tugu',
-            'alamat' => 'Jl raya tugu Lelea',
-            
+            'alamat' => 'jl raya tugu lelea',
+            'kecamatan' => 'lelea',
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Kandanghaur',
-            'alamat' => 'Ds Curug rt.04/07.Kandanghaur',
+            'alamat' => 'ds curug rt.04/07.kandanghaur',
+            'kecamatan' => 'kandanghaur',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Bongas',
-            'alamat' => 'Desa Margamulya kec bongas kab indramayu',
-            
+            'alamat' => 'desa margamulya kec bongas kab indramayu',
+            'kecamatan' => 'bongas',
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Drunten Wetan',
-            'alamat' => 'Drunten Wetan',
+            'alamat' => 'drunten wetan',
+            'kecamatan' => 'gabuswetan',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Temiyang',
-            'alamat' => 'Desa Temiyangsari Kec.Kroya',
+            'alamat' => 'desa temiyangsari kec.kroya',
+            'kecamatan' => 'kroya',
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Tambi',
-            'alamat' => 'Jln raya kr.ampel-jatibarang desa tambi lor',
+            'alamat' => 'jln raya karangampel jatibarang desa tambi lor',
+            'kecamatan' => 'sliyeg',
+            
+
             
         ]);
         Puskesmas::create([
             'nama' => 'Puskesmas Jatisawit',
-            'alamat' => 'Jln. Raya Jatisawit Lor Kec. Jatibarang',
-            
+            'alamat' => 'jln. Raya Jatisawit Lor Kec. Jatibarang',
+            'kecamatan' => 'jatibarang',
         ]);
     }
 }
