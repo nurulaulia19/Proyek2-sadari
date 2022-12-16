@@ -3,7 +3,7 @@
         <div class="h-screen-10vh px-2  bg-red-100 w-full flex items-center justify-between">
             <img style="width:100px ; height:60px" src="../assets/img/logo.png" alt="sadari">
 
-            <div class="hidden lg:flex">
+            {{-- <div class="hidden lg:flex">
 
                 <ul class="flex text-blue-700">
                     <li class="mx-4 text-center text-2xl">
@@ -15,7 +15,7 @@
 
                 </ul>
 
-            </div>
+            </div> --}}
 
             <div>
                 <div class="lg:hidden" onclick="handleClick()">

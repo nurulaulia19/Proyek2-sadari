@@ -10,16 +10,72 @@
     @vite('../resources/js/quisionerHandler.js')
 </head>
 
-<body>
+        <body>
+                    @foreach ($result_keluhan as $caritanggal )
+                    @if ($caritanggal->user_id == Auth::user()->id )
+                    <?php
+                    $cs = $caritanggal->created_at;
+                    ?>
+                    @break
+                    @endif
+                    @endforeach
+
+                    @foreach ($result_keluhan as $r_klhn)
+                    @if(Auth::user()->id == $r_klhn->user_id)
+                    @php
+                    //    $nilai = substr('aul',0,2);
+                        $tahun = (int)substr($cs,0,4);
+                        $bulan = (int)substr($cs,5,2);
+                        $hari = (int)substr($cs,8,2);
+
+                        $sekarang = date('Y-m-d H:i:s');
+                        $tahunNow = (int)substr($sekarang,0,4);
+                        $bulanNow = (int)substr($sekarang,5,2);
+                        $hariNow = (int)substr($sekarang,8,2);
+                    @endphp
+                    @if ($tahunNow > $tahun)
+                        @if($bulan == 1 && $hariNow >= $hari )
+                        {{-- <a href="/quisioner">
+                            <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
+                        </a> --}}
+                        @elseif($bulan > 1)
+                        {{-- <a href="/quisioner">
+                            <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
+                        </a> --}}
+                        @else
+                        <script>window.location.href = "/home";</script>
+                        @endif
+                    @endif
+                    @if ($tahunNow == $tahun)
+                        @if($bulanNow > $bulan)
+                            @if($hariNow >= $hari)
+                            {{-- <a href="/quisioner">
+                                <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
+                            </a> --}}
+                            @else
+                            <script>window.location.href = "/home";</script>
+                            @endif
+                        @else
+                        <script>window.location.href = "/home";</script>
+                        @endif
+                    @endif
+                    @else
+
+@endif
+                        
+                    @endforeach
+                    
+
+
     <div class="h-screen bg-red-100 flex justify-center">
         <div class="max-w-screen-xl h-screen w-full flex flex-col items-center">
             <!-- NAVBAR SECTION -->
             <div class="flex justify-between w-full items-center h-max mt-16 px-20">
                 <img style="width:100px ; height:60px" src="../assets/img/logo.png" alt="sadari">
-                <h1>KUIOSIONER #1</h1>
-                <div>
+                {{-- <h1>KUIOSIONER</h1> --}}
+                {{-- <div>
                     x
-                </div>
+                </div> --}}
             </div>
 
             <!-- QUESTION SECTION -->
@@ -37,37 +93,40 @@
                         <input style="display: none;" type="text" name="nik" value="{{ Auth::user()->nik }}">
                         <input style="display: none;" type="text" name="nama" value="{{ Auth::user()->name }}">
                         <div>
-                            <div class="flex items-center mt-4 bg-white border border-slate-300 border border-slate-300  rounded-lg">
-                                <input class="inputan" type="radio" id="a{{ $value->id }}" name="q{{ $value->id }}" value="a">
+                            <div class="flex items-center mt-4 bg-white border border-blue-300 border border-slate-300 rounded-lg p-1">
+                                <input class="inputan mx-3" type="radio" id="a{{ $value->id }}" name="q{{ $value->id }}" value="a">
                                 <label class="w-full" for="a{{ $value->id }}">{{ $value->opsi1}}</label><br>
                             </div>
-                            <div class="flex items-center mt-4 bg-white border border-slate-300 border border-slate-300  rounded-lg">
-                                <input class="inputan" type="radio" id="b{{ $value->id }}" name="q{{ $value->id }}" value="b">
+                            <div class="flex items-center mt-4 bg-white border-blue-300 border border-slate-300  rounded-lg p-1">
+                                <input class="inputan mx-3" type="radio" id="b{{ $value->id }}" name="q{{ $value->id }}" value="b">
                                 <label class="w-full" for="b{{ $value->id }}">{{ $value->opsi2}}</label><br>
                             </div>
-                            <div class="flex items-center mt-4 bg-white border border-slate-300 border border-slate-300  rounded-lg">
-                                <input class="inputan" type="radio" id="c{{ $value->id }}" name="q{{ $value->id }}" value="c">
+                            <div class="flex items-center mt-4 bg-white border border-blue-300 border border-slate-300  rounded-lg p-1">
+                                <input class="inputan mx-3" type="radio" id="c{{ $value->id }}" name="q{{ $value->id }}" value="c">
                                 <label class="w-full" for="c{{ $value->id }}">{{ $value->opsi3}}</label>
                             </div>
-                            <div class="flex items-center mt-4 bg-white border border-slate-300 border border-slate-300  rounded-lg">
-                                <input class="inputan" type="radio" id="d{{ $value->id }}" name="q{{ $value->id }}" value="d">
+                            <div class="flex items-center mt-4 bg-white border border-blue-300 border border-slate-300  rounded-lg p-1">
+                                <input class="inputan mx-3" type="radio" id="d{{ $value->id }}" name="q{{ $value->id }}" value="d">
                                 <label class="w-full" for="d{{ $value->id }}">{{ $value->opsi4}}</label>
                             </div>
                         </div>
                     </div>
                     @endforeach
-                    <div id="11" style="display: none;" class="table-responsive">
-                        <h2>Centang keluhan yang ada alami dibawah ini:</h2>
+                    <div id="11" style="display: none;" class="table-responsive" >
+                        <div style="margin-top:100px">
+                            <h2 class="mb-4">Centang keluhan yang ada alami dibawah ini:</h2>
                         <input style="display: none;" type="text" name="user_id" value="{{ Auth::user()->id }}">
-                        <table class="table table-striped table-bordered table-hover">
-                            <tbody>
+
+
+                        <table class="table table-striped  table-hover">
+                            <tbody >
                                 @foreach ($dataKeluhan as $keluhan)
                                 <tr>
-                                    <td>{{ $keluhan->id }}</td>
-                                    <td>
+                                    <td class=" flex items-start mr-4">{{ $keluhan->id }}</td>
+                                    <td class="">
                                         {{ $keluhan->keluhan }}
                                     </td>
-                                    <td>
+                                    <td class=" flex items-start px-2">
                                         <input class="myCheckBox" id="check{{$keluhan->id}}" type="checkbox" name="a{{$keluhan->id}}" value="{{ $keluhan->id }}">
                                     </td>
                                 </tr>
@@ -75,7 +134,12 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+
+
+
                         <input type="hidden" name="jumlah" value="6">
+                        </div>
                         <!-- <button type="submit" id="btn-keluhan" class="btn btn-success">SIMPAN</button> -->
                     </div>
 
@@ -133,6 +197,7 @@
         </div>
     </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById('1').style.display = "block";
         //  NOTE: DATA QUESTION
@@ -141,6 +206,12 @@
         let banyak = 1
         console.log('banyak', banyak)
         const runMyFunction = () => {
+//             Swal.fire({
+//   icon: 'warning',
+//   title: 'Jangan Cemas!',
+//   text: 'Lakukan Konsultasi Secepat Mungkin',
+//   footer: '<a href="">Hubungi Kami</a>'
+// })
 
             banyak += 1;
             document.getElementById('angka').innerHTML = banyak;

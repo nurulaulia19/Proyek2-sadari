@@ -2,6 +2,7 @@
 
 use App\Models\Quisioners;
 use App\Models\Daftar_keluhan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\biodataController;
 use App\Http\Controllers\LaporanController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ResultKeluhanController;
 use App\Http\Controllers\belumditanganiController;
 use App\Http\Controllers\sudahditanganiController;
 use App\Http\Controllers\ResultQuisionerController;
+use App\Models\ResultKeluhan;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +59,9 @@ Route::middleware('auth')->group(function () {
         $angka = 1;
         $dataPertanyaan = Quisioners::all();
         $dataKeluhan = Daftar_keluhan::all();
-        return view('pages.quisioner', compact('angka', 'dataPertanyaan', 'dataKeluhan'));
+        $result_keluhan = ResultKeluhan::orderBy("created_at", "desc")->get();
+        $cs = "";
+        return view('pages.quisioner', compact('angka', 'dataPertanyaan', 'dataKeluhan','result_keluhan','cs'));
     });
 });
 

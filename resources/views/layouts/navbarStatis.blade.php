@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <img style="width:100px ; height:60px" src="../assets/img/logo.png" alt="sadari">
 
-                <div class="hidden lg:flex lg:pl-8 ml-8">
+                {{-- <div class="hidden lg:flex lg:pl-8 ml-8">
 
                     <ul class="flex text-blue-700">
                         <li class="mx-4 text-center text-2xl">
@@ -17,7 +17,7 @@
 
                     </ul>
 
-                </div>
+                </div> --}}
             </div>
 
 

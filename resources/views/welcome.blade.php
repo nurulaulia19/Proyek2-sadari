@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html>
 
 <head>
@@ -114,4 +114,5 @@
     @include('layouts.footer')
 </body>
 
-</html>
+</html> --}}
+@include('layouts landing page.main');

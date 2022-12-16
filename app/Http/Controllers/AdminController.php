@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Auth;
 use App\Models\ModelHasRoles;
 use App\Models\Puskesmas;
 use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
