@@ -35,13 +35,9 @@
                     @endphp
                     @if ($tahunNow > $tahun)
                         @if($bulan == 1 && $hariNow >= $hari )
-                        {{-- <a href="/quisioner">
-                            <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
-                        </a> --}}
+                        
                         @elseif($bulan > 1)
-                        {{-- <a href="/quisioner">
-                            <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
-                        </a> --}}
+                        
                         @else
                         <script>window.location.href = "/home";</script>
                         @endif
@@ -49,9 +45,6 @@
                     @if ($tahunNow == $tahun)
                         @if($bulanNow > $bulan)
                             @if($hariNow >= $hari)
-                            {{-- <a href="/quisioner">
-                                <button type="button" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white w-full">Periksa Lagi</button>
-                            </a> --}}
                             @else
                             <script>window.location.href = "/home";</script>
                             @endif
@@ -148,32 +141,7 @@
                     </div>
 
                 </form>
-                <!-- <div id="11" style="display: none;" class="table-responsive">
-                    <h2>Centang keluhan yang ada alami dibawah ini:</h2>
 
-                    <form name="form-kuisioner" method="POST" id="form-kuesioner" action="{{ route('resultkeluhan.store') }}">
-                        @csrf
-                        <input style="display: none;" type="text" name="user_id" value="{{ Auth::user()->id }}">
-                        <table class="table table-striped table-bordered table-hover">
-                            <tbody>
-                                @foreach ($dataKeluhan as $keluhan)
-                                <tr>
-                                    <td>{{ $keluhan->id }}</td>
-                                    <td>
-                                        {{ $keluhan->keluhan }}
-                                    </td>
-                                    <td>
-                                        <input class="myCheckBox" id="check{{$keluhan->id}}" type="checkbox" name="a{{$keluhan->id}}" value="{{ $keluhan->id }}">
-                                    </td>
-                                </tr>
-
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <input type="hidden" name="jumlah" value="6">
-                        <button type="submit" id="btn-keluhan" class="btn btn-success">SIMPAN</button>
-                    </form>
-                </div> -->
 
             </div>
 
@@ -184,13 +152,15 @@
         <div class="max-w-screen-xl w-full  flex justify-evenly items-center">
             <div class="flex items-center">
                 <div class="w-36 h-3 bg-blue-400 rounded-lg">
-                    <div class="w-1/2 h-3 bg-blue-700 rounded-lg">
+                    <div id='sesion-bar' class="w-1/2 h-3 bg-blue-700 rounded-lg">
 
                     </div>
                 </div>
-                <span id="angka" class="px-2">1</span>/ 12
+                <span id="angka" class="px-2">1</span>/ 11
             </div>
-            <div>
+            <div class="flex">
+                {{-- penambahan button back --}}
+                <button for='form-kuesioner' id='btnBack' onclick="prevQuestion()" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white mr-2">Back</button>
                 <button for='form-kuesioner' id='btn' onclick="runMyFunction()" class="bg-blue-600 font-bold py-2 px-4 rounded-xl text-white">Next</button>
             </div>
 
@@ -199,79 +169,90 @@
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        // penambahan sesion bar
+        document.getElementById(`sesion-bar`).style.width = '5%';
         document.getElementById('1').style.display = "block";
-        //  NOTE: DATA QUESTION
+        document.getElementById('btnBack').style.display = "none";
 
 
         let banyak = 1
         console.log('banyak', banyak)
         const runMyFunction = () => {
-//             Swal.fire({
-//   icon: 'warning',
-//   title: 'Jangan Cemas!',
-//   text: 'Lakukan Konsultasi Secepat Mungkin',
-//   footer: '<a href="">Hubungi Kami</a>'
-// })
-
             banyak += 1;
             document.getElementById('angka').innerHTML = banyak;
             if (banyak == 11) {
                 document.getElementById('sendNow').style.display = 'block'
+            }else{
+                document.getElementById('sendNow').style.display = 'none'
             }
             console.log('banyak', banyak);
             switch (banyak) {
                 case 1:
-                    // alert('welcome')
+                    // penambahan btn back
+                    document.getElementById('btnBack').style.display = "none";
+                    document.getElementById(`sesion-bar`).style.width = '5%';
                     document.getElementById(`1`).style.display = 'block';
                     document.getElementById(`2`).style.display = 'none';
                     break;
                 case 2:
                     // alert('case 2')
+                    document.getElementById('btnBack').style.display = "flex";
+                    document.getElementById(`sesion-bar`).style.width = '10%';
                     document.getElementById(`1`).style.display = 'none';
                     document.getElementById(`2`).style.display = 'block';
                     document.getElementById(`3`).style.display = 'none';
                     break;
                 case 3:
+                document.getElementById(`sesion-bar`).style.width = '20%';
                     document.getElementById(`2`).style.display = 'none';
                     document.getElementById(`3`).style.display = 'block';
                     document.getElementById(`4`).style.display = 'none';
                     break;
                 case 4:
+                document.getElementById(`sesion-bar`).style.width = '30%';
                     document.getElementById(`3`).style.display = 'none';
                     document.getElementById(`4`).style.display = 'block';
                     document.getElementById(`5`).style.display = 'none';
                     break;
                 case 5:
+                document.getElementById(`sesion-bar`).style.width = '40%';
                     document.getElementById(`4`).style.display = 'none';
                     document.getElementById(`5`).style.display = 'block';
                     document.getElementById(`6`).style.display = 'none';
                     break;
                 case 6:
+                document.getElementById(`sesion-bar`).style.width = '50%';
                     document.getElementById(`5`).style.display = 'none';
                     document.getElementById(`6`).style.display = 'block';
                     document.getElementById(`7`).style.display = 'none';
                     break;
                 case 7:
+                document.getElementById(`sesion-bar`).style.width = '60%';
                     document.getElementById(`6`).style.display = 'none';
                     document.getElementById(`7`).style.display = 'block';
                     document.getElementById(`8`).style.display = 'none';
                     break;
                 case 8:
+                document.getElementById(`sesion-bar`).style.width = '70%';
                     document.getElementById(`7`).style.display = 'none';
                     document.getElementById(`8`).style.display = 'block';
                     document.getElementById(`9`).style.display = 'none';
                     break;
                 case 9:
+                document.getElementById(`sesion-bar`).style.width = '80%';
                     document.getElementById(`8`).style.display = 'none';
                     document.getElementById(`9`).style.display = 'block';
                     document.getElementById(`10`).style.display = 'none';
                     break;
                 case 10:
+                document.getElementById(`sesion-bar`).style.width = '90%';
                     document.getElementById(`9`).style.display = 'none';
                     document.getElementById(`10`).style.display = 'block';
                     document.getElementById(`11`).style.display = 'none';
                     break;
                 case 11:
+                document.getElementById(`sesion-bar`).style.width = '100%';
+                document.getElementById(`btn`).style.display = 'none';
                     document.getElementById(`10`).style.display = 'none';
                     document.getElementById(`11`).style.display = 'block';
                     document.getElementById(`1`).style.display = 'none';
@@ -291,6 +272,98 @@
             document.getElementById('check5').checked = false;
             document.getElementById('check6').checked = false;
         })
+        // penambahan fungsi handle bcak
+        function prevQuestion(){
+            banyak -= 1;
+            document.getElementById('angka').innerHTML = banyak;
+            if (banyak != 11) {
+                document.getElementById('sendNow').style.display = 'none'
+            }
+            console.log('banyak', banyak);
+            switch (banyak) {
+                case 1:
+                    // penambahan btn back dan session bar
+                    document.getElementById('btnBack').style.display = "none";
+                    document.getElementById(`sesion-bar`).style.width = '5%';
+                    document.getElementById(`1`).style.display = 'block';
+                    document.getElementById(`2`).style.display = 'none';
+                    break;
+                case 2:
+                    // alert('case 2')
+                    document.getElementById(`btn`).style.display = 'flex';
+                    document.getElementById(`sesion-bar`).style.width = '10%';
+                    document.getElementById(`1`).style.display = 'none';
+                    document.getElementById(`2`).style.display = 'block';
+                    document.getElementById(`3`).style.display = 'none';
+                    break;
+                case 3:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '20%';
+                    document.getElementById(`2`).style.display = 'none';
+                    document.getElementById(`3`).style.display = 'block';
+                    document.getElementById(`4`).style.display = 'none';
+                    break;
+                case 4:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '30%';
+                    document.getElementById(`3`).style.display = 'none';
+                    document.getElementById(`4`).style.display = 'block';
+                    document.getElementById(`5`).style.display = 'none';
+                    break;
+                case 5:
+                document.getElementById(`sesion-bar`).style.width = '40%';
+                    document.getElementById(`4`).style.display = 'none';
+                    document.getElementById(`5`).style.display = 'block';
+                    document.getElementById(`6`).style.display = 'none';
+                    break;
+                case 6:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '50%';
+                    document.getElementById(`5`).style.display = 'none';
+                    document.getElementById(`6`).style.display = 'block';
+                    document.getElementById(`7`).style.display = 'none';
+                    break;
+                case 7:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '60%';
+                    document.getElementById(`6`).style.display = 'none';
+                    document.getElementById(`7`).style.display = 'block';
+                    document.getElementById(`8`).style.display = 'none';
+                    break;
+                case 8:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '70%';
+                    document.getElementById(`7`).style.display = 'none';
+                    document.getElementById(`8`).style.display = 'block';
+                    document.getElementById(`9`).style.display = 'none';
+                    break;
+                case 9:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '80%';
+                    document.getElementById(`8`).style.display = 'none';
+                    document.getElementById(`9`).style.display = 'block';
+                    document.getElementById(`10`).style.display = 'none';
+                    break;
+                case 10:
+                document.getElementById(`btn`).style.display = 'flex';
+                document.getElementById(`sesion-bar`).style.width = '90%';
+                    document.getElementById(`9`).style.display = 'none';
+                    document.getElementById(`10`).style.display = 'block';
+                    document.getElementById(`11`).style.display = 'none';
+                    break;
+                case 11:
+                document.getElementById(`sesion-bar`).style.width = '100%';
+                document.getElementById(`btn`).style.display = 'none';
+                    document.getElementById(`10`).style.display = 'none';
+                    document.getElementById(`11`).style.display = 'block';
+                    document.getElementById(`1`).style.display = 'none';
+                    break;
+                default:
+                    // document.getElementById(`q${banyak}`).style.display = 'none';
+                    break;
+            }
+
+        }
         for (let index = 1; index < 7; index++) {
             document.querySelector(`input[name=a${index}]`).addEventListener('change', () => {
                 document.getElementById('check7').checked = false;

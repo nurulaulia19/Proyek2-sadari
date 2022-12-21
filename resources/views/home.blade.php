@@ -215,6 +215,7 @@
                 @endif
                 @endforeach
 
+                {{-- penambahan w-full --}}
                 @if ($state == 'data ditemukan')
                 <div class="flex flex-col w-full">
                     <table class="table border border-2 w-100 " style="margin-top: 10px;">
